@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ColleagueController;
+use App\Http\Controllers\Api\MessageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,12 @@ Route::prefix('colleagues')
     ->group(function(){
         Route::get('/', [ColleagueController::class, 'get'])->name('get');
     });
+
+Route::prefix('messages')
+    ->name('messages.')
+    ->group(function(){
+        Route::post('/', [MessageController::class, 'store'])->name('store');
+        Route::get('/{message}/message', [MessageController::class, 'getMessage'])->name('getMessage');
+    });
+
+

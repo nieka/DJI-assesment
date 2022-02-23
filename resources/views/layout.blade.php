@@ -6,7 +6,7 @@
 
     <title>{{ config('app.name') }}</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    @stack('styles')
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\MessageController::class, 'create']);
+Route::get('/', [MessageController::class, 'create']);
+Route::get('/{message}', [MessageController::class, 'show'])->name('show');
