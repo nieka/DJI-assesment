@@ -2,7 +2,7 @@
 
 Requirements:
 - Composer
-- php 7.2 or higher
+- php 8.0.2 or higher
 - some database server
 
 ```bash
@@ -29,5 +29,5 @@ php artisan serve
 # Run Tests
 
 ```bash
-./vendor/bin/phpunit
+ php artisan test
 ```
