@@ -9,6 +9,9 @@ class Colleague extends Model
 {
     use HasFactory;
 
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         'name',
         'email'

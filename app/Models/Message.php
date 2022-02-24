@@ -19,6 +19,9 @@ class Message extends Model
      */
     protected $keyType = 'string';
 
+    /**
+     * @var bool
+     */
     public $incrementing = false;
 
     /**
