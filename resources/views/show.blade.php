@@ -47,8 +47,7 @@
 @push('scripts')
     <script>
         $('#load-message-button').on('click', function(){
-            $('.alert').hide();
-            $('#message-box').hide();
+            reset();
 
             let url = '{{ route('messages.getMessage', $message->id) }}?password=';
             url += $('#password').val();
@@ -58,6 +57,14 @@
                         .text(response.message)
                         .show();
                     $('#message-success-alert').show();
+
+                    setTimeout(
+                        function() {
+                            reset();
+                            $('#password').val("")
+                        },
+                        30 * 1000 //30 seconds
+                    );
                 }
             )
             .fail(
@@ -65,6 +72,13 @@
                     $('#error-alert').show();
                 }
             )
-        })
+        });
+
+        function reset() {
+            $('#message-box')
+                .text("")
+                .hide();
+            $('.alert').hide();
+        }
     </script>
 @endpush
