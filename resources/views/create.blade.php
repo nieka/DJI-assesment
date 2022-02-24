@@ -70,7 +70,7 @@
                colleagueSelect.append(
                    $('<option>')
                        .text("{{ trans('colleague.selectColleague') }}")
-                       .val(null);
+                       .val(null)
                )
 
                data.forEach(function(colleague) {

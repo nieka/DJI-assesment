@@ -6,6 +6,7 @@ use Exception;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Encryption\Encrypter;
 use Illuminate\Support\Str;
 
@@ -31,7 +32,7 @@ class Message extends Model
     /**
      * @return void
      */
-    protected static function boot()
+    protected static function boot(): void
     {
         parent::boot();
 
@@ -49,9 +50,16 @@ class Message extends Model
         try {
             $encrypter = new Encrypter($password);
             return $encrypter->decrypt($this->message);
-        }
-        catch (Exception $exception) {
+        } catch (Exception $exception) {
             abort('401');
         }
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function colleague(): BelongsTo
+    {
+        return $this->belongsTo(Colleague::class);
     }
 }

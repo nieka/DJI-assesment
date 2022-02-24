@@ -13,7 +13,8 @@ class CreateMessageTest extends TestCase
 
         $response->assertOk();
         $response->assertSee(config('app.name'));
-        $response->assertSee('Plaats hier je bericht');
-        $response->assertSee('Versleutel bericht');
+        $response->assertSee(trans('colleague.selectColleague'));
+        $response->assertSee(trans('colleague.placeMessage'));
+        $response->assertSee(trans('colleague.encryptMessage'));
     }
 }
