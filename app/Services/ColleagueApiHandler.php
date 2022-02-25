@@ -17,7 +17,6 @@ class ColleagueApiHandler
         $response = Http::get("https://pastebin.com/raw/uDzdKzGG");
 
         if (!$response->successful()) {
-            //todo improve error logging so we know what went wrong
             Log::error('Failed to fetch colleagues');
 
             return collect([]);

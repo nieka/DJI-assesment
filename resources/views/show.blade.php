@@ -49,9 +49,7 @@
         $('#load-message-button').on('click', function(){
             reset();
 
-            let url = '{{ route('messages.getMessage', $message->id) }}?password=';
-            url += $('#password').val();
-            $.get(url,
+            $.get('{{ route('messages.getMessage', $message->id) }}?password=' + $('#password').val(),
                 function(response){
                     $('#message-box')
                         .text(response.message)

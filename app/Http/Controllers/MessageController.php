@@ -11,6 +11,9 @@ use Illuminate\Support\Str;
 
 class MessageController extends Controller
 {
+    /**
+     * @return Renderable
+     */
     public function create(): Renderable
     {
         return view('create');
@@ -18,12 +21,10 @@ class MessageController extends Controller
 
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Message $message
+     * @return Renderable
      */
-    public function show(Message $message)
+    public function show(Message $message): Renderable
     {
         return view('show')
             ->with([
